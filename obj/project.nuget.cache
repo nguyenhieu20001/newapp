@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SzIhaavIySs=",
+  "success": true,
+  "projectFilePath": "/Users/nguyenvanhieu/Downloads/ExcavatorAngleSample/ExcavatorAngle.App/ExcavatorAngle.App.csproj",
+  "expectedPackageFiles": [
+    "/Users/nguyenvanhieu/.nuget/packages/microsoft.windowsdesktop.app.ref/8.0.32/microsoft.windowsdesktop.app.ref.8.0.32.nupkg.sha512"
+  ],
+  "logs": []
+}

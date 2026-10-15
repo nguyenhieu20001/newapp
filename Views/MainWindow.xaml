@@ -1,0 +1,40 @@
+<Window x:Class="ExcavatorAngle.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Excavator Angle Monitor (sample)"
+        Width="980" Height="620" MinWidth="820" MinHeight="520"
+        Background="#14181C">
+
+    <!-- DataContext = AppState (gán trong code-behind) → mọi {Binding ...} đọc từ AppState -->
+    <DockPanel>
+
+        <!-- Thanh trên: chuyển trang + Start/Stop -->
+        <Border DockPanel.Dock="Top" Background="{StaticResource PanelBrush}" Padding="8">
+            <DockPanel>
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <Button Content="Monitor" Click="NavMonitor_Click"/>
+                    <Button Content="Calibration" Click="NavCalibration_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Start" Click="Start_Click"/>
+                    <Button Content="Stop" Click="Stop_Click"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- Thanh dưới: trạng thái kết nối -->
+        <Border DockPanel.Dock="Bottom" Background="{StaticResource PanelBrush}" Padding="10,6">
+            <StackPanel Orientation="Horizontal">
+                <Ellipse x:Name="StatusDot" Width="10" Height="10" Margin="0,0,8,0" Fill="Gray"/>
+                <TextBlock Text="{Binding ConnectionText}" Foreground="{StaticResource TextBrush}"/>
+                <TextBlock Text="  |  Gói nhận: " Foreground="{StaticResource SubTextBrush}"/>
+                <TextBlock Text="{Binding PacketCount}" Foreground="{StaticResource TextBrush}"/>
+                <TextBlock Text="  |  " Foreground="{StaticResource SubTextBrush}"/>
+                <TextBlock Text="{Binding Message}" Foreground="{StaticResource SubTextBrush}"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Vùng nội dung: đổi giữa MonitorPage và CalibrationPage -->
+        <ContentControl x:Name="PageHost" Margin="12"/>
+    </DockPanel>
+</Window>

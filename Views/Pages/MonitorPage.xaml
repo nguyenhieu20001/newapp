@@ -1,0 +1,59 @@
+<UserControl x:Class="ExcavatorAngle.App.Views.Pages.MonitorPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:parts="clr-namespace:ExcavatorAngle.App.Views.Parts">
+
+    <UserControl.Resources>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SubTextBrush}"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="Value" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource TextBrush}"/>
+            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Hình máy xúc: binding từng góc vào control tự vẽ -->
+        <Border Background="{StaticResource PanelBrush}" CornerRadius="6" Margin="0,0,12,0">
+            <Viewbox Margin="10">
+                <parts:ExcavatorDiagram BoomAngle="{Binding Boom}"
+                                        ArmAngle="{Binding Arm}"
+                                        BucketAngle="{Binding Bucket}"
+                                        SwingAngle="{Binding Swing}"
+                                        PitchAngle="{Binding Pitch}"/>
+            </Viewbox>
+        </Border>
+
+        <!-- Bảng số -->
+        <Border Grid.Column="1" Background="{StaticResource PanelBrush}" CornerRadius="6" Padding="16">
+            <StackPanel>
+                <TextBlock Text="Boom" Style="{StaticResource Label}"/>
+                <TextBlock Text="{Binding Boom, StringFormat={}{0:F1}°}" Style="{StaticResource Value}"/>
+                <TextBlock Text="Arm" Style="{StaticResource Label}"/>
+                <TextBlock Text="{Binding Arm, StringFormat={}{0:F1}°}" Style="{StaticResource Value}"/>
+                <TextBlock Text="Bucket" Style="{StaticResource Label}"/>
+                <TextBlock Text="{Binding Bucket, StringFormat={}{0:F1}°}" Style="{StaticResource Value}"/>
+                <TextBlock Text="Swing" Style="{StaticResource Label}"/>
+                <TextBlock Text="{Binding Swing, StringFormat={}{0:F1}°}" Style="{StaticResource Value}"/>
+                <TextBlock Text="Pitch / Roll" Style="{StaticResource Label}"/>
+                <TextBlock Style="{StaticResource Value}" FontSize="20">
+                    <Run Text="{Binding Pitch, StringFormat={}{0:F1}°, Mode=OneWay}"/>
+                    <Run Text=" / "/>
+                    <Run Text="{Binding Roll, StringFormat={}{0:F1}°, Mode=OneWay}"/>
+                </TextBlock>
+                <TextBlock Text="Lần nhận cuối" Style="{StaticResource Label}"/>
+                <TextBlock Text="{Binding LastReceived, StringFormat={}{0:HH:mm:ss.fff}, TargetNullValue=-}"
+                           Foreground="{StaticResource TextBrush}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
