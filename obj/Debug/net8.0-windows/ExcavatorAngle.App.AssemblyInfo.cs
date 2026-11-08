@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ExcavatorAngle.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f48c377137b4fe9e9e49f19836ad1d85b1d4ebc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ExcavatorAngle.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ExcavatorAngle.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
